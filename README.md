@@ -1,6 +1,6 @@
 # UTK Schedule Parser
 <p align="center">
-<img src="img/ut-logo.jpg" width="40%" >
+<img src="img/ut-logo.jpg" width="20%" >
 </p>
 
 ## Preface
