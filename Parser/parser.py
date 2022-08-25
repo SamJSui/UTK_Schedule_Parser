@@ -7,7 +7,8 @@ from datetime import datetime
 column_names = 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri'
 dict_of_schedules = {}
 
-schedules_path = '../Schedules'
+schedules_path = '../Schedules' # PATH
+
 for file in os.listdir(schedules_path): # ITERATES THROUGH EACH PDF IN SCHEDULES DIR
     schedule_path = os.path.join(schedules_path, file)
     table = camelot.read_pdf(schedule_path) # TABULATE
@@ -43,7 +44,7 @@ for key in dict_of_schedules: # Dict of Schedules (DataFrames)
     for col, cell in dict_of_schedules[key].items(): # Cells in Schedules (Frame)
         for row in cell: # Rows within Series
             data = row.split()
-            if len(data):
+            if len(data): # IGNORES BLANK BOXES
                 if 'SHOWN' in data:
                     data.remove('SHOWN')
                 times = time_parse(data)
@@ -51,5 +52,5 @@ for key in dict_of_schedules: # Dict of Schedules (DataFrames)
                 for i in range(3, len(data)):
                     schedule_class += data[i] + ' '
                 times_df.loc[len(times_df)] = [col, key, data[2], schedule_class.rstrip(), times[0], times[1]]
-times_df.to_csv('times.csv')
+times_df.to_csv('times.csv', index=False)
 print(times_df.head())
