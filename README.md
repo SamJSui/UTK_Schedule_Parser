@@ -20,4 +20,5 @@ As a member of UT's Asian American InterVarsity club, I wanted to reduce tedious
 - `pip install -r requirements.txt`
 
 ## To Do
-- 
+
+- Port Tableau visual to Colab Notebook
